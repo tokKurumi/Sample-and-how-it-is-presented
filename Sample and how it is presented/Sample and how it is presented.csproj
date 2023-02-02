@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <RootNamespace>Sample_and_how_it_is_presented</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MVVM\View\dice.png" />
+    <None Remove="MVVM\View\logo.ico" />
+    <None Remove="MVVM\View\logo.png" />
+    <None Remove="MVVM\View\mainlogo.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+    <Folder Include="MVVM\Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="MVVM\View\dice.png" />
+    <Resource Include="MVVM\View\logo.ico" />
+    <Resource Include="MVVM\View\logo.png" />
+    <Resource Include="MVVM\View\mainlogo.gif" />
+  </ItemGroup>
+
+</Project>
