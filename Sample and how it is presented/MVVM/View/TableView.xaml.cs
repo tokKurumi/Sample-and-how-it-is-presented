@@ -1,8 +1,5 @@
-﻿using Microsoft.Win32;
-using Sample_and_how_it_is_presented.MVVM.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,13 +16,13 @@ using System.Windows.Shapes;
 namespace Sample_and_how_it_is_presented.MVVM.View
 {
 	/// <summary>
-	/// Interaction logic for HomeView.xaml
+	/// Interaction logic for TableView.xaml
 	/// </summary>
-	public partial class HomeView : UserControl
+	public partial class TableView : UserControl
 	{
-		public HomeView()
+		public TableView()
 		{
 			InitializeComponent();
 		}
-   }
+	}
 }

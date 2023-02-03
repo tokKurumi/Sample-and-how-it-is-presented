@@ -9,10 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="MVVM\View\dice.png" />
-    <None Remove="MVVM\View\logo.ico" />
-    <None Remove="MVVM\View\logo.png" />
-    <None Remove="MVVM\View\mainlogo.gif" />
+    <None Remove="Images\author.jpg" />
+    <None Remove="Images\dice.png" />
+    <None Remove="Images\logo.png" />
+    <None Remove="Images\mainlogo.gif" />
+    <None Remove="Images\mainlogo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,14 +22,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="MVVM\View\dice.png" />
-    <Resource Include="MVVM\View\logo.ico" />
-    <Resource Include="MVVM\View\logo.png" />
-    <Resource Include="MVVM\View\mainlogo.gif" />
+    <Resource Include="Images\author.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\dice.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\mainlogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

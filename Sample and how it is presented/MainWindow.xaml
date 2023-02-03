@@ -41,13 +41,23 @@
 								 Height="50"
 								 Foreground="White"
 								 FontSize="14"
-								 Style="{StaticResource MenuButtonTheme}"/>
+								 Style="{StaticResource MenuButtonTheme}"
+								 IsChecked="True"
+								 Command="{Binding HomeViewCommand}"/>
+
+				<RadioButton Content="Данные"
+								 Height="50"
+								 Foreground="White"
+								 FontSize="14"
+								 Style="{StaticResource MenuButtonTheme}"
+								 Command="{Binding DataViewCommand}"/>
 
 				<RadioButton Content="Таблица"
 								 Height="50"
 								 Foreground="White"
 								 FontSize="14"
-								 Style="{StaticResource MenuButtonTheme}"/>
+								 Style="{StaticResource MenuButtonTheme}"
+								 Command="{Binding TableViewCommand}"/>
 
 				<RadioButton Content="Визуализация"
 								 Height="50"

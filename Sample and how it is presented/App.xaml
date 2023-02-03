@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Sample_and_how_it_is_presented"
              xmlns:viewModel="clr-namespace:Sample_and_how_it_is_presented.MVVM.ViewModel"
              xmlns:view="clr-namespace:Sample_and_how_it_is_presented.MVVM.View"
+
              StartupUri="MainWindow.xaml">
    <Application.Resources>
       <ResourceDictionary>
@@ -16,7 +17,14 @@
 				<view:HomeView/>
 			</DataTemplate>
 
+			<DataTemplate DataType="{x:Type viewModel:DataViewModel}">
+				<view:DataView/>
+			</DataTemplate>
 
-      </ResourceDictionary>
+			<DataTemplate DataType="{x:Type viewModel:TableViewModel}">
+				<view:TableView/>
+			</DataTemplate>
+
+		</ResourceDictionary>
    </Application.Resources>
 </Application>

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sample_and_how_it_is_presented.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="650">
 	<StackPanel>
 		<TextBlock Text="Главная"
                  Foreground="White"
@@ -44,16 +44,14 @@
 
 					<Image Width="150"
                       Height="150"
-                      Source="/MVVM/View/dice.png"
                       HorizontalAlignment="Left"
-                      VerticalAlignment="Bottom" Margin="269,0,0,-37"/>
+                      VerticalAlignment="Bottom" Margin="269,0,0,-37" Source="/Images/dice.png"/>
 				</Grid>
 
 			</Border>
 
 			<Border Width="200"
                  Height="200"
-                 CornerRadius="10"
                  Margin="45,0,0,0">
 
 				<Border.Clip>
@@ -63,10 +61,10 @@
 				</Border.Clip>
 
 				<Grid>
-					<Image Source="/MVVM/View/logo.png"/>
-
+					<Image Stretch="Fill" 
+							 Source="/Images/logo.png"/>
 				</Grid>
-				
+
 			</Border>
 		</StackPanel>
 
@@ -84,30 +82,93 @@
 				</StackPanel.Resources>
 
 				<Border Width="150"
-							Height="150"
-							Background="#844eff"
-							CornerRadius="10"
-							Margin="0">
+						  Height="150"
+						  Background="#844eff"
+						  CornerRadius="10"
+						  Margin="0">
 
 					<Grid>
-						<TextBlock Text="Вариационные ряды"/>
+						<StackPanel>
+							<TextBlock Text="Вариационные&#x0a;ряды"
+									  Foreground="White"
+									  VerticalAlignment="Center"
+									  Padding="8"
+									  FontSize="18"/>
+
+							<TextBlock Text="Построение&#x0a;вариационного&#x0a;ряда в один клик!"
+									  Foreground="White"
+									  VerticalAlignment="Center"
+									  Padding="8"
+									  FontSize="14"/>
+						</StackPanel>
+					</Grid>
+				</Border>
+
+				<Border Width="150"
+						  Height="150"
+						  Background="#4e99ff"
+						  CornerRadius="10">
+
+					<Grid>
+						<StackPanel>
+							<TextBlock Text="Статистические&#x0a;ряды"
+									  Foreground="White"
+									  VerticalAlignment="Center"
+									  Padding="8"
+									  FontSize="18"/>
+
+							<TextBlock Text="Построение&#x0a;статистического&#x0a;ряда в один клик!"
+									  Foreground="White"
+									  VerticalAlignment="Center"
+									  Padding="8"
+									  FontSize="14"/>
+						</StackPanel>
 					</Grid>
 				</Border>
 
 				<Border Width="150"
 							Height="150"
-							Background="#4e99ff"
-							CornerRadius="10"/>
+							Background="#46e382"
+							CornerRadius="10">
+
+					<Grid>
+						<StackPanel>
+							<TextBlock Text="Визуализация&#x0a;данных"
+									  Foreground="White"
+									  VerticalAlignment="Center"
+									  Padding="8"
+									  FontSize="18"/>
+
+							<TextBlock Text="Визуализируй&#x0a;свои данные прямо&#x0a;сейчас!"
+									  Foreground="White"
+									  VerticalAlignment="Center"
+									  Padding="8"
+									  FontSize="14"/>
+						</StackPanel>
+					</Grid>
+				</Border>
 
 				<Border Width="150"
 							Height="150"
-							Background="#4eff91"
-							CornerRadius="10"/>
+							Background="#dcf043"
+							CornerRadius="10">
 
-				<Border Width="150"
-							Height="150"
-							Background="#ecff4e"
-							CornerRadius="10"/>
+					<Grid>
+						<StackPanel>
+							<TextBlock Text="Сохраняй&#x0a;результат"
+									  Foreground="White"
+									  VerticalAlignment="Center"
+									  Padding="8"
+									  FontSize="18"/>
+
+							<TextBlock Text="Сохраняй&#x0a;текущий результат&#x0a;прямо в файл!"
+									  Foreground="White"
+									  VerticalAlignment="Center"
+									  Padding="8"
+									  FontSize="14"/>
+						</StackPanel>
+					</Grid>
+				</Border>
 			</StackPanel>
 		</StackPanel>
 	</StackPanel>

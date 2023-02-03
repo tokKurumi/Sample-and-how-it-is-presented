@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Sample_and_how_it_is_presented.MVVM.View.TableView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Sample_and_how_it_is_presented.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="650">
+   <Grid>
+		<StackPanel>
+			<TextBlock Text="123"
+                 Foreground="White"
+                 FontSize="28"
+                 HorizontalAlignment="Left"
+                 Margin="0,0,0,20"/>
+
+      </StackPanel>  
+   </Grid>
+</UserControl>

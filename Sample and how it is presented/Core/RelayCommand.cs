@@ -22,7 +22,7 @@ namespace Sample_and_how_it_is_presented.Core
 
 		public bool CanExecute(object parameter)
 		{
-			return _canExecute != null || _canExecute(parameter);
+			return _canExecute == null || _canExecute(parameter);
 		}
 
 		public void Execute(object parameter)

@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Sample_and_how_it_is_presented.MVVM.View.DataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Sample_and_how_it_is_presented.MVVM.View"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="650">
+   <Grid>
+		<StackPanel>
+			<TextBlock Text="Данные"
+                 Foreground="White"
+                 FontSize="28"
+                 HorizontalAlignment="Left"
+                 Margin="0,0,0,20"/>
+
+			<StackPanel Orientation="Horizontal"
+						Margin="0,0,0,10"
+                  Width="650"
+                  Height="300">
+
+				<Border>
+					<DataGrid
+                         Name="DataGridData"
+                         Width="630"
+                         Foreground="White"
+                         Background="#2d0e5c">
+
+						<DataGrid.Resources>
+							<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+								<Setter Property="Background" Value="#2d0e5cFF"/>
+								<Setter Property="Padding" Value="10"/>
+							</Style>
+						</DataGrid.Resources>
+
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="Число"
+                                         Width="*"
+                                         FontSize="30"
+                                         Foreground="Transparent"/>
+						</DataGrid.Columns>
+               </DataGrid>
+            </Border>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>
