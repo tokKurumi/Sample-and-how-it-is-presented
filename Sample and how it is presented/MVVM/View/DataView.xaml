@@ -5,42 +5,85 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sample_and_how_it_is_presented.MVVM.View"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="650">
+             d:DesignWidth="650">
    <Grid>
 		<StackPanel>
-			<TextBlock Text="Данные"
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+				<TextBlock Text="Данные"
                  Foreground="White"
                  FontSize="28"
-                 HorizontalAlignment="Left"
-                 Margin="0,0,0,20"/>
+                 HorizontalAlignment="Left"/>
+			</StackPanel>
 
-			<StackPanel Orientation="Horizontal"
-						Margin="0,0,0,10"
-                  Width="650"
-                  Height="300">
+			<Grid Height="332">
 
-				<Border>
-					<DataGrid
-                         Name="DataGridData"
-                         Width="630"
-                         Foreground="White"
-                         Background="#2d0e5c">
+				<DataGrid x:Name="dataGridData"
+                      Foreground="Black"
+						    AutoGenerateColumns="False"
+							 CanUserResizeColumns="False"
+							 CanUserResizeRows="False"
+							 CanUserAddRows="False"
+							 CanUserDeleteRows="False"
+							 HeadersVisibility="Column"
+							 ScrollViewer.CanContentScroll="True"
+							 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+							 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+							 AlternationCount="2"
+							 AlternatingRowBackground="#4f51e8"
+							 BorderBrush="Transparent">
 
-						<DataGrid.Resources>
-							<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-								<Setter Property="Background" Value="#2d0e5cFF"/>
-								<Setter Property="Padding" Value="10"/>
-							</Style>
-						</DataGrid.Resources>
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Кол-во"
+												  Width="85"
+												  Binding="{Binding Value}"/>
+						<DataGridTextColumn Header="Число"
+												  Width="*"
+												  Binding="{Binding Key}"/>
+					</DataGrid.Columns>
 
-						<DataGrid.Columns>
-							<DataGridTextColumn Header="Число"
-                                         Width="*"
-                                         FontSize="30"
-                                         Foreground="Transparent"/>
-						</DataGrid.Columns>
-               </DataGrid>
-            </Border>
+					<DataGrid.RowStyle>
+						<Style TargetType="DataGridRow">
+							<Setter Property="Background" Value="#3f41d1"/>
+							<Setter Property="Foreground" Value="White"/>
+							<Setter Property="FontSize" Value="16"/>
+						</Style>
+					</DataGrid.RowStyle>
+
+					<DataGrid.CellStyle>
+						<Style TargetType="DataGridCell">
+							<Setter Property="BorderBrush" Value="Transparent"/>
+							<Setter Property="BorderThickness" Value="1 1 1 1"/>
+						</Style>
+					</DataGrid.CellStyle>
+
+					<DataGrid.Resources>
+						<Style TargetType="{x:Type	DataGridColumnHeader}">
+							<Setter Property="Background" Value="#2d0e5c"/>
+							<Setter Property="Padding" Value="10"/>
+							<Setter Property="Foreground" Value="White"/>
+							<Setter Property="FontSize" Value="20"/>
+						</Style>
+					</DataGrid.Resources>
+				</DataGrid>
+			</Grid>
+
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Click"
+						  Style="{StaticResource ModernButton}"
+						  Background="#32a852"
+						  FontSize="18"
+						  FontWeight="Bold"
+						  Cursor="Hand">
+					Сохранить
+				</Button>
+				<Button Click="Button_Click_1"
+						  Style="{StaticResource ModernButton}"
+						  Background="#3072b0"
+						  FontSize="18"
+						  FontWeight="Bold"
+						  Cursor="Hand">
+					Загрузить
+				</Button>
 			</StackPanel>
 		</StackPanel>
 	</Grid>

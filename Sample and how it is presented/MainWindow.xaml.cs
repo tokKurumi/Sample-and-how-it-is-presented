@@ -24,5 +24,10 @@ namespace Sample_and_how_it_is_presented
 		{
 			InitializeComponent();
 		}
-	}
+
+		private void closeButton_Click(object sender, RoutedEventArgs e)
+		{
+			Close();
+      }
+    }
 }

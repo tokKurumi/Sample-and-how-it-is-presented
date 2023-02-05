@@ -5,15 +5,86 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sample_and_how_it_is_presented.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="650">
-   <Grid>
+             d:DesignWidth="680">
+	<Grid>
 		<StackPanel>
-			<TextBlock Text="123"
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+				<TextBlock Text="Табличное представление"
                  Foreground="White"
                  FontSize="28"
-                 HorizontalAlignment="Left"
-                 Margin="0,0,0,20"/>
+                 HorizontalAlignment="Left"/>
+			</StackPanel>
 
-      </StackPanel>  
-   </Grid>
+			<Grid Height="332">
+
+				<DataGrid x:Name="dataGridTableView"
+                      Foreground="Black"
+						    AutoGenerateColumns="False"
+							 CanUserResizeColumns="False"
+							 CanUserResizeRows="False"
+							 CanUserAddRows="False"
+							 CanUserDeleteRows="False"
+							 HeadersVisibility="Column"
+							 ScrollViewer.CanContentScroll="True"
+							 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+							 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+							 AlternationCount="2"
+							 AlternatingRowBackground="#4f51e8"
+							 BorderBrush="Transparent">
+
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="#"
+												  Binding="{Binding Number}"/>
+
+						<DataGridTextColumn Header="Нижняя&#x0a;граница"
+												  Binding="{Binding BottomLine}"/>
+
+						<DataGridTextColumn Header="Верхняя&#x0a;граница"
+												  Binding="{Binding TopLine}"/>
+
+						<DataGridTextColumn Header="Середина"
+												  Binding="{Binding Average}"/>
+
+						<DataGridTextColumn Header="Частота"
+												  Binding="{Binding Frequency}"/>
+
+						<DataGridTextColumn Header="Накопленная&#x0a;частота"
+												  Binding="{Binding AccumulatedFrequency}"/>
+
+						<DataGridTextColumn Header="Относительная&#x0a;частота"
+												  Binding="{Binding RelativeFrequency}"/>
+
+						<DataGridTextColumn Header="Относительная&#x0a;накопленная&#x0a;частота"
+												  Binding="{Binding RelativeCumulativeFrequency}"
+												  Width="*"/>
+					</DataGrid.Columns>
+
+					<DataGrid.RowStyle>
+						<Style TargetType="DataGridRow">
+							<Setter Property="Background" Value="#3f41d1"/>
+							<Setter Property="Foreground" Value="White"/>
+							<Setter Property="FontSize" Value="16"/>
+						</Style>
+					</DataGrid.RowStyle>
+
+					<DataGrid.CellStyle>
+						<Style TargetType="DataGridCell">
+							<Setter Property="BorderBrush" Value="Transparent"/>
+							<Setter Property="BorderThickness" Value="1 1 1 1"/>
+						</Style>
+					</DataGrid.CellStyle>
+
+					<DataGrid.Resources>
+						<Style TargetType="{x:Type	DataGridColumnHeader}">
+							<Setter Property="Background" Value="#2d0e5c"/>
+							<Setter Property="Padding" Value="10"/>
+							<Setter Property="Foreground" Value="White"/>
+							<Setter Property="FontSize" Value="14"/>
+						</Style>
+					</DataGrid.Resources>
+				</DataGrid>
+			</Grid>
+		</StackPanel>
+
+	</Grid>
 </UserControl>

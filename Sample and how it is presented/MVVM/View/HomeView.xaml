@@ -106,7 +106,7 @@
 
 				<Border Width="150"
 						  Height="150"
-						  Background="#4e99ff"
+						  Background="#4386e0"
 						  CornerRadius="10">
 
 					<Grid>
@@ -128,7 +128,7 @@
 
 				<Border Width="150"
 							Height="150"
-							Background="#46e382"
+							Background="#34c26a"
 							CornerRadius="10">
 
 					<Grid>
@@ -150,7 +150,7 @@
 
 				<Border Width="150"
 							Height="150"
-							Background="#dcf043"
+							Background="#d9ba1e"
 							CornerRadius="10">
 
 					<Grid>

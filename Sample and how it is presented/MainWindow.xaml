@@ -30,11 +30,11 @@
 			</Grid.RowDefinitions>
 
 			<TextBlock Text="YudashkinAPP"
-					  VerticalAlignment="Center"
-					  HorizontalAlignment="Left"
-					  Foreground="White"
-					  FontSize="22"
-					  Margin="20,0,0,0"/>
+						  VerticalAlignment="Center"
+						  HorizontalAlignment="Left"
+						  Foreground="White"
+						  FontSize="22"
+						  Margin="20,0,0,0"/>
 
 			<StackPanel Grid.Row="1">
 				<RadioButton Content="Главная"
@@ -43,12 +43,14 @@
 								 FontSize="14"
 								 Style="{StaticResource MenuButtonTheme}"
 								 IsChecked="True"
+								 Cursor="Hand"
 								 Command="{Binding HomeViewCommand}"/>
 
 				<RadioButton Content="Данные"
 								 Height="50"
 								 Foreground="White"
 								 FontSize="14"
+								 Cursor="Hand"
 								 Style="{StaticResource MenuButtonTheme}"
 								 Command="{Binding DataViewCommand}"/>
 
@@ -56,6 +58,7 @@
 								 Height="50"
 								 Foreground="White"
 								 FontSize="14"
+								 Cursor="Hand"
 								 Style="{StaticResource MenuButtonTheme}"
 								 Command="{Binding TableViewCommand}"/>
 
@@ -63,23 +66,32 @@
 								 Height="50"
 								 Foreground="White"
 								 FontSize="14"
+								 Cursor="Hand"
 								 Style="{StaticResource MenuButtonTheme}"/>
 
 				<RadioButton Content="Об авторе"
 								 Height="50"
 								 Foreground="White"
 								 FontSize="14"
+								 Cursor="Hand"
 								 Style="{StaticResource MenuButtonTheme}"/>
 			</StackPanel>
 
-			<TextBox Width="250"
-						Height="40"
-						VerticalContentAlignment="Center"
-						HorizontalAlignment="Left"
-						Margin="5"
-						Grid.Column="2"
-						Tag="Search"
-						Style="{StaticResource ModernTextBox}"/>
+
+
+			<Button Grid.Column="2"
+					  Width="30"
+					  Height="30"
+					  Style="{StaticResource WindowButtonStyle}"
+					  x:Name="closeButton"
+					  Content="r"
+					  Foreground="#f54257"
+					  HorizontalAlignment="Right"
+					  Margin="10,10,20,10"
+					  FontSize="20"
+					  Cursor="Hand"
+					  Click="closeButton_Click"/>
+
 
 			<ContentControl Grid.Row="1"
 								 Grid.Column="1"
