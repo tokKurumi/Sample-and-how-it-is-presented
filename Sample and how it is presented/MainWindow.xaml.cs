@@ -28,6 +28,12 @@ namespace Sample_and_how_it_is_presented
 		private void closeButton_Click(object sender, RoutedEventArgs e)
 		{
 			Close();
-      }
-    }
+		}
+
+		private void MainApplicationWindow_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			if (e.ChangedButton == MouseButton.Left)
+				this.DragMove();
+		}
+	}
 }

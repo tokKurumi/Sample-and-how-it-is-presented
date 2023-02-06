@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.IO;
-using System.Xml;
-using System.Windows.Media;
-using System.Windows;
 
 namespace Sample_and_how_it_is_presented.MVVM.Model
 {

@@ -10,6 +10,7 @@ namespace Sample_and_how_it_is_presented.MVVM.ViewModel
 			DataVM = new DataViewModel();
 			TableVM = new TableViewModel();
 			VisualizationVM = new VisualizationViewModel();
+			AuthorVM = new AuthorViewMode();
 			CurrentView = HomeVM;
 
 			HomeViewCommand = new RelayCommand(x =>
@@ -31,17 +32,24 @@ namespace Sample_and_how_it_is_presented.MVVM.ViewModel
 			{
 				CurrentView = VisualizationVM;
 			});
+
+			AuthorViewCommand = new RelayCommand(x =>
+			{
+				CurrentView = AuthorVM;
+			});
 		}
 
 		public RelayCommand HomeViewCommand { get; set; }
 		public RelayCommand DataViewCommand { get; set; }
 		public RelayCommand TableViewCommand { get; set; }
 		public RelayCommand VisualizationViewCommand { get; set; }
+		public RelayCommand AuthorViewCommand { get; set; }
 
 		public HomeViewModel HomeVM { get; set; }
 		public TableViewModel TableVM { get; set; }
 		public DataViewModel DataVM { get; set; }
 		public VisualizationViewModel VisualizationVM { get; set; }
+		public AuthorViewMode AuthorVM { get; set; }
 
 		private object _currentView;
 

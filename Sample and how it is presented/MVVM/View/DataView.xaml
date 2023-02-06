@@ -73,7 +73,6 @@
 						  Style="{StaticResource ModernButton}"
 						  Background="#32a852"
 						  FontSize="18"
-						  FontWeight="Bold"
 						  Cursor="Hand">
 					Сохранить
 				</Button>
@@ -81,7 +80,6 @@
 						  Style="{StaticResource ModernButton}"
 						  Background="#3072b0"
 						  FontSize="18"
-						  FontWeight="Bold"
 						  Cursor="Hand">
 					Загрузить
 				</Button>

@@ -11,7 +11,8 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+		  Name="MainApplicationWindow" MouseDown="MainApplicationWindow_MouseDown">
 
 	<Window.DataContext>
 		<viewModel:MainViewModel/>
@@ -75,7 +76,8 @@
 								 Foreground="White"
 								 FontSize="14"
 								 Cursor="Hand"
-								 Style="{StaticResource MenuButtonTheme}"/>
+								 Style="{StaticResource MenuButtonTheme}"
+								 Command="{Binding AuthorViewCommand}"/>
 			</StackPanel>
 
 

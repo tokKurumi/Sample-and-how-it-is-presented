@@ -5,25 +5,29 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sample_and_how_it_is_presented.MVVM.View"
 				 xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" d:DesignWidth="800">
 
-	<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+	<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="500">
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition/>
 				<ColumnDefinition/>
 			</Grid.ColumnDefinitions>
 			<Grid.RowDefinitions>
-				<RowDefinition Height="300"/>
-				<RowDefinition Height="300"/>
+				<RowDefinition/>
 				<RowDefinition Height="300"/>
 				<RowDefinition Height="300"/>
 				<RowDefinition Height="300"/>
 				<RowDefinition Height="300"/>
 			</Grid.RowDefinitions>
 
-			<lvc:CartesianChart Series="{Binding AverageSeries1}" Name="averageSeriesChart1" Grid.Row="0" Grid.Column="0">
+			<TextBlock Text="Визуализация данных"
+						  Foreground="White"
+						  FontSize="28"
+						  HorizontalAlignment="Left"
+						  Margin="10"/>
+
+			<lvc:CartesianChart Series="{Binding AverageSeries1}" Name="averageSeriesChart1" Grid.Row="1" Grid.Column="0">
 				<lvc:CartesianChart.AxisX>
 					<lvc:Axis Title="Середина интервала" Labels="{Binding LabelsAverageSeries1}"></lvc:Axis>
 				</lvc:CartesianChart.AxisX>
@@ -32,7 +36,7 @@
 				</lvc:CartesianChart.AxisY>
 			</lvc:CartesianChart>
 
-			<lvc:CartesianChart Series="{Binding AverageSeries2}" Name="averageSeriesChart2" Grid.Row="0" Grid.Column="1">
+			<lvc:CartesianChart Series="{Binding AverageSeries2}" Name="averageSeriesChart2" Grid.Row="1" Grid.Column="1">
 				<lvc:CartesianChart.AxisX>
 					<lvc:Axis Title="Номер интервала" Labels="{Binding YFormatterAverageSeries2}"></lvc:Axis>
 				</lvc:CartesianChart.AxisX>
@@ -41,7 +45,7 @@
 				</lvc:CartesianChart.AxisY>
 			</lvc:CartesianChart>
 
-			<lvc:CartesianChart Series="{Binding AccumulatedFrequencySeries1}" Name="accumulatedFrequency1" Grid.Row="1" Grid.Column="0">
+			<lvc:CartesianChart Series="{Binding AccumulatedFrequencySeries1}" Name="accumulatedFrequency1" Grid.Row="2" Grid.Column="0">
 				<lvc:CartesianChart.AxisX>
 					<lvc:Axis Title="Середина интервала" Labels="{Binding LabelsAccumulatedFrequency1}"></lvc:Axis>
 				</lvc:CartesianChart.AxisX>
@@ -50,7 +54,7 @@
 				</lvc:CartesianChart.AxisY>
 			</lvc:CartesianChart>
 
-			<lvc:CartesianChart Series="{Binding AccumulatedFrequencySeries2}" Name="accumulatedFrequency2" Grid.Row="1" Grid.Column="1">
+			<lvc:CartesianChart Series="{Binding AccumulatedFrequencySeries2}" Name="accumulatedFrequency2" Grid.Row="2" Grid.Column="1">
 				<lvc:CartesianChart.AxisX>
 					<lvc:Axis Title="Номер интервала" Labels="{Binding LabelsAccumulatedFrequency2}"></lvc:Axis>
 				</lvc:CartesianChart.AxisX>
@@ -59,7 +63,7 @@
 				</lvc:CartesianChart.AxisY>
 			</lvc:CartesianChart>
 
-			<lvc:CartesianChart Series="{Binding RelativeFrequencySeries1}" Name="relativeFrequency1" Grid.Row="2" Grid.Column="0">
+			<lvc:CartesianChart Series="{Binding RelativeFrequencySeries1}" Name="relativeFrequency1" Grid.Row="3" Grid.Column="0">
 				<lvc:CartesianChart.AxisX>
 					<lvc:Axis Title="Середина интервала" Labels="{Binding LabelsRelativeFrequency1}"></lvc:Axis>
 				</lvc:CartesianChart.AxisX>
@@ -68,7 +72,7 @@
 				</lvc:CartesianChart.AxisY>
 			</lvc:CartesianChart>
 
-			<lvc:CartesianChart Series="{Binding RelativeFrequencySeries2}" Name="relativeFrequency2" Grid.Row="2" Grid.Column="1">
+			<lvc:CartesianChart Series="{Binding RelativeFrequencySeries2}" Name="relativeFrequency2" Grid.Row="3" Grid.Column="1">
 				<lvc:CartesianChart.AxisX>
 					<lvc:Axis Title="Номер интервала" Labels="{Binding LabelsRelativeFrequency2}"></lvc:Axis>
 				</lvc:CartesianChart.AxisX>
@@ -77,7 +81,7 @@
 				</lvc:CartesianChart.AxisY>
 			</lvc:CartesianChart>
 
-			<lvc:CartesianChart Series="{Binding RelativeCumulativeFrequencySeries1}" Name="relativeCumulativeFrequency1" Grid.Row="3" Grid.Column="0">
+			<lvc:CartesianChart Series="{Binding RelativeCumulativeFrequencySeries1}" Name="relativeCumulativeFrequency1" Grid.Row="4" Grid.Column="0">
 				<lvc:CartesianChart.AxisX>
 					<lvc:Axis Title="Середина интервала" Labels="{Binding LabelsRelativeCumulativeFrequency1}"></lvc:Axis>
 				</lvc:CartesianChart.AxisX>
@@ -86,7 +90,7 @@
 				</lvc:CartesianChart.AxisY>
 			</lvc:CartesianChart>
 
-			<lvc:CartesianChart Series="{Binding RelativeCumulativeFrequencySeries2}" Name="relativeCumulativeFrequency2" Grid.Row="3" Grid.Column="1">
+			<lvc:CartesianChart Series="{Binding RelativeCumulativeFrequencySeries2}" Name="relativeCumulativeFrequency2" Grid.Row="4" Grid.Column="1">
 				<lvc:CartesianChart.AxisX>
 					<lvc:Axis Title="Номер интервала" Labels="{Binding LabelsRelativeCumulativeFrequency2}"></lvc:Axis>
 				</lvc:CartesianChart.AxisX>
