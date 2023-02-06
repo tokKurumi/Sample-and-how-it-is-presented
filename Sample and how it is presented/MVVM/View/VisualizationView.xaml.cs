@@ -58,7 +58,7 @@ namespace Sample_and_how_it_is_presented.MVVM.View
 
 		private void displayChartRow1()
 		{
-			var labels = Probability_theory.TableRowsView.Select(x => x.Average.ToString() + "lol!").ToArray();
+			var labels = Probability_theory.TableRowsView.Select(x => x.Average.ToString()).ToArray();
 			var values = new ChartValues<int>(Probability_theory.TableRowsView.Select(x => x.Frequency));
 			
 			AverageSeries1 = new SeriesCollection
