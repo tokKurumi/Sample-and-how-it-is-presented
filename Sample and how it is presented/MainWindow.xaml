@@ -67,7 +67,8 @@
 								 Foreground="White"
 								 FontSize="14"
 								 Cursor="Hand"
-								 Style="{StaticResource MenuButtonTheme}"/>
+								 Style="{StaticResource MenuButtonTheme}"
+								 Command="{Binding VisualizationViewCommand}"/>
 
 				<RadioButton Content="Об авторе"
 								 Height="50"

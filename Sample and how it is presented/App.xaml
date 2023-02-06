@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Sample_and_how_it_is_presented"
              xmlns:viewModel="clr-namespace:Sample_and_how_it_is_presented.MVVM.ViewModel"
              xmlns:view="clr-namespace:Sample_and_how_it_is_presented.MVVM.View"
-
+				 xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
              StartupUri="MainWindow.xaml">
    <Application.Resources>
       <ResourceDictionary>
@@ -25,6 +25,10 @@
 
 			<DataTemplate DataType="{x:Type viewModel:TableViewModel}">
 				<view:TableView/>
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type viewModel:VisualizationViewModel}">
+				<view:VisualizationView/>
 			</DataTemplate>
 
 		</ResourceDictionary>

@@ -29,6 +29,7 @@ namespace Sample_and_how_it_is_presented.MVVM.Model
 				Numbers.Sort();
 				Series = Numbers.GroupBy(x => x).ToDictionary(keySelector: g => g.Key, elementSelector: g => g.Count());
 				CountOfPartitions = 1 + Convert.ToInt32(3.32 * Math.Log10(Numbers.Count));
+				CreateRowViews();
 				return true;
 			}
 			catch(Exception ex)

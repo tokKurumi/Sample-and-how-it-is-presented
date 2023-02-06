@@ -13,6 +13,7 @@
                  Foreground="White"
                  FontSize="28"
                  HorizontalAlignment="Left"/>
+
 			</StackPanel>
 
 			<Grid Height="332">
