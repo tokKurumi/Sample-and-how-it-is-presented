@@ -49,16 +49,16 @@ namespace Sample_and_how_it_is_presented.MVVM.Model
 
 			float min = Numbers.Min();
 			float max = Numbers.Max();
-			float step = (float)Math.Round((max - min) / CountOfPartitions, 3);
+			float step = (float)Math.Round((max - min) / CountOfPartitions, 4);
 
 			for (int i = 0; i < CountOfPartitions; ++i)
 			{
-				float BottomLine = (float)Math.Round(min + step * i, 3);
-				float TopLine = (float)Math.Round(BottomLine + step, 3);
+				float BottomLine = (float)Math.Round(min + step * i, 4);
+				float TopLine = (float)Math.Round(BottomLine + step, 4);
 				int Frequency = Numbers.Count(x => (x >= min + step * i) && (x < min + step * (i + 1)));
 				int AccumulatedFrequency = TableRowsView.Select(x => x.Frequency).Sum() + Frequency;
-				float RelativeFrequency =  (float)Math.Round((float)Frequency / Numbers.Count(), 3);
-				float RelativeCumulativeFrequency = (float)Math.Round(TableRowsView.Select(x => x.RelativeFrequency).Sum() + RelativeFrequency, 2);
+				float RelativeFrequency =  (float)Math.Round((float)Frequency / Numbers.Count(), 4);
+				float RelativeCumulativeFrequency = (float)Math.Round(TableRowsView.Select(x => x.RelativeFrequency).Sum() + RelativeFrequency, 4);
 
 				TableRowsView.Add(new TableRow(
 					i,
@@ -70,6 +70,8 @@ namespace Sample_and_how_it_is_presented.MVVM.Model
 					RelativeCumulativeFrequency
 				));
 			}
+
+			TableRowsView[TableRowsView.Count - 1].RelativeCumulativeFrequency = 1;
 		}
    }
 }

@@ -63,7 +63,7 @@
 						<Style TargetType="DataGridRow">
 							<Setter Property="Background" Value="#3f41d1"/>
 							<Setter Property="Foreground" Value="White"/>
-							<Setter Property="FontSize" Value="16"/>
+							<Setter Property="FontSize" Value="18"/>
 						</Style>
 					</DataGrid.RowStyle>
 

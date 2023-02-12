@@ -16,13 +16,13 @@ namespace Sample_and_how_it_is_presented.MVVM.Model
 			RelativeCumulativeFrequency = relativeCumulativeFrequency;
 		}
 
-		public int Number { get; private set; }
-		public float BottomLine { get; private set; }
-		public float TopLine { get; private set; }
-		public float Average { get; private set; }
-		public int Frequency { get; private set; }
-		public int AccumulatedFrequency { get; private set; }
-		public float RelativeFrequency { get; private set; }
-		public float RelativeCumulativeFrequency { get; private set; }
+		public int Number { get; set; }
+		public float BottomLine { get; set; }
+		public float TopLine { get; set; }
+		public float Average { get; set; }
+		public int Frequency { get; set; }
+		public int AccumulatedFrequency { get; set; }
+		public float RelativeFrequency { get; set; }
+		public float RelativeCumulativeFrequency { get; set; }
 	}
 }

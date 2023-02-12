@@ -1,7 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
 using LiveCharts;
+using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using Sample_and_how_it_is_presented.MVVM.Model;
 
@@ -12,150 +19,158 @@ namespace Sample_and_how_it_is_presented.MVVM.View
 	/// </summary>
 	public partial class VisualizationView : UserControl
 	{
-
 		public VisualizationView()
 		{
 			InitializeComponent();
 
 			if (Probability_theory.Numbers.Count != 0)
 			{
-				displayChartRow1();
-				displayChartRow2();
-				displayChartRow3();
-				displayChartRow4();
+				chart1();
+				chart2();
+				chart3();
+				chart4();
 			}
 
 			DataContext = this;
 		}
 
 		public SeriesCollection AverageSeries1 { get; private set; } = new SeriesCollection();
-		public string[] LabelsAverageSeries1 { get; private set; } = new string[0];
-		public Func<double, string> YFormatterAverageSeries1 { get; private set; } = value => value.ToString("C");
 		public SeriesCollection AverageSeries2 { get; private set; } = new SeriesCollection();
-		public string[] LabelsAverageSeries2 { get; private set; } = new string[0];
-		public Func<double, string> YFormatterAverageSeries2 { get; private set; } = value => value.ToString("C");
 
 		public SeriesCollection AccumulatedFrequencySeries1 { get; private set; } = new SeriesCollection();
-		public string[] LabelsAccumulatedFrequency1 { get; private set; } = new string[0];
-		public Func<double, string> YFormatterAccumulatedFrequency1 { get; private set; } = value => value.ToString("C");
 		public SeriesCollection AccumulatedFrequencySeries2 { get; private set; } = new SeriesCollection();
-		public string[] LabelsAccumulatedFrequency2 { get; private set; } = new string[0];
-		public Func<double, string> YFormatterAccumulatedFrequency2 { get; private set; } = value => value.ToString("C");
 
 		public SeriesCollection RelativeFrequencySeries1 { get; private set; } = new SeriesCollection();
-		public string[] LabelsRelativeFrequency1 { get; private set; } = new string[0];
-		public Func<double, string> YFormatterRelativeFrequency1 { get; private set; } = value => value.ToString("C");
 		public SeriesCollection RelativeFrequencySeries2 { get; private set; } = new SeriesCollection();
-		public string[] LabelsRelativeFrequency2 { get; private set; } = new string[0];
-		public Func<double, string> YFormatterRelativeFrequency2 { get; private set; } = value => value.ToString("C");
 
-		public SeriesCollection RelativeCumulativeFrequencySeries1 { get; private set; } = new SeriesCollection();
-		public string[] LabelsRelativeCumulativeFrequency1 { get; private set; } = new string[0];
-		public Func<double, string> YFormatterRelativeCumulativeFrequency1 { get; private set; } = value => value.ToString("C");
-		public SeriesCollection RelativeCumulativeFrequencySeries2 { get; private set; } = new SeriesCollection();
-		public string[] LabelsRelativeCumulativeFrequency2 { get; private set; } = new string[0];
-		public Func<double, string> YFormatterRelativeCumulativeFrequency2 { get; private set; } = value => value.ToString("C");
+		public SeriesCollection RelativeCumulativeFrequencySerise1 { get; private set; } = new SeriesCollection();
+		public SeriesCollection RelativeCumulativeFrequencySerise2 { get; private set; } = new SeriesCollection();
 
-		private void displayChartRow1()
+		private void chart1()
 		{
-			var labels = Probability_theory.TableRowsView.Select(x => x.Average.ToString()).ToArray();
-			var values = new ChartValues<int>(Probability_theory.TableRowsView.Select(x => x.Frequency));
-			
+			var values = new ChartValues<ObservablePoint>
+			(
+				Probability_theory.TableRowsView.Select(x => x.Average)
+				.Zip(Probability_theory.TableRowsView.Select(x => x.Frequency),
+					(x, y) => new ObservablePoint(x, y))
+			);
+
 			AverageSeries1 = new SeriesCollection
 			{
 				new LineSeries
 				{
-					Title = "Полигон частот",
-					Values = values
+					Values = values,
+					Title = "Полигон частот"
 				}
 			};
-			LabelsAverageSeries1 = labels;
-	
-
+			averageSeriesChartAxisX1.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
+			averageSeriesChartAxisY1.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
 			
 			AverageSeries2 = new SeriesCollection
 			{
 				new ColumnSeries
 				{
-					Title = "Гистограмма частот",
-					Values =  values
+					Values = values,
+					Title = "Гистограмма частот"
 				}
 			};
-			LabelsAverageSeries2 = labels;
+			averageSeriesChartAxisX2.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
+			averageSeriesChartAxisY2.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
+
 		}
-		private void displayChartRow2(){
-			var labels = Probability_theory.TableRowsView.Select(x => x.Average.ToString()).ToArray();
-			var values = new ChartValues<int>(Probability_theory.TableRowsView.Select(x => x.AccumulatedFrequency));
+		private void chart2()
+		{
+			var values = new ChartValues<ObservablePoint>
+			(
+				Probability_theory.TableRowsView.Select(x => x.Average)
+				.Zip(Probability_theory.TableRowsView.Select(x => x.AccumulatedFrequency),
+					(x, y) => new ObservablePoint(x, y))
+			);
 
 			AccumulatedFrequencySeries1 = new SeriesCollection
 			{
 				new LineSeries
 				{
-					Title = "Полигон накопленных частот",
-					Values = values
+					Values = values,
+					Title = "Полигон накопленных частот"
 				}
 			};
-			LabelsAccumulatedFrequency1 = labels;
+			accumulatedFrequencySeriesChartAxisX1.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
+			accumulatedFrequencySeriesChartAxisY1.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
 
 			AccumulatedFrequencySeries2 = new SeriesCollection
 			{
 				new ColumnSeries
 				{
-					Title = "Гистограмма накопленных частот",
-					Values =  values
+					Values = values,
+					Title = "Гистограмма накопленных частот"
 				}
 			};
-			LabelsAccumulatedFrequency2 = labels;
+			accumulatedFrequencySeriesChartAxisX2.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
+			accumulatedFrequencySeriesChartAxisY2.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
 		}
-		private void displayChartRow3()
+		private void chart3()
 		{
-			var labels = Probability_theory.TableRowsView.Select(x => x.Average.ToString()).ToArray();
-			var values = new ChartValues<float>(Probability_theory.TableRowsView.Select(x => x.RelativeFrequency));
+			var values = new ChartValues<ObservablePoint>
+			(
+				Probability_theory.TableRowsView.Select(x => x.Average)
+				.Zip(Probability_theory.TableRowsView.Select(x => x.RelativeFrequency),
+					(x, y) => new ObservablePoint(x, y))
+			);
 
 			RelativeFrequencySeries1 = new SeriesCollection
 			{
 				new LineSeries
 				{
-					Title = "Полигон относительных частот",
-					Values = values
+					Values = values,
+					Title = "Полигон относительных частот"
 				}
 			};
-			LabelsAccumulatedFrequency1 = labels;
+			relativeFrequencySeriesChartAxisX1.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
+			relativeFrequencySeriesChartAxisY1.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
 
 			RelativeFrequencySeries2 = new SeriesCollection
 			{
 				new ColumnSeries
 				{
-					Title = "Гистограмма относительных частот",
-					Values =  values
+					Values = values,
+					Title = "Гистограмма относительных частот"
 				}
 			};
-			LabelsAccumulatedFrequency2 = labels;
+			relativeFrequencySeriesChartAxisX2.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
+			relativeFrequencySeriesChartAxisY2.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
 		}
-		private void displayChartRow4()
+		private void chart4()
 		{
-			var labels = Probability_theory.TableRowsView.Select(x => x.Average.ToString()).ToArray();
-			var values = new ChartValues<float>(Probability_theory.TableRowsView.Select(x => x.RelativeCumulativeFrequency));
+			var values = new ChartValues<ObservablePoint>
+			(
+				Probability_theory.TableRowsView.Select(x => x.Average)
+				.Zip(Probability_theory.TableRowsView.Select(x => x.RelativeCumulativeFrequency),
+					(x, y) => new ObservablePoint(x, y))
+			);
 
-			RelativeCumulativeFrequencySeries1 = new SeriesCollection
+			RelativeCumulativeFrequencySerise1 = new SeriesCollection
 			{
 				new LineSeries
 				{
-					Title = "Полигон относительных накопленных частот",
-					Values = values
+					Values = values,
+					Title = "Полигон относительных накопленных частот"
 				}
 			};
-			LabelsRelativeCumulativeFrequency1 = labels;
+			relativeCumulativeFrequencySeriseChartAxisX1.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
+			relativeCumulativeFrequencySeriseChartAxisY1.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
 
-			RelativeCumulativeFrequencySeries2 = new SeriesCollection
+			RelativeCumulativeFrequencySerise2 = new SeriesCollection
 			{
 				new ColumnSeries
 				{
-					Title = "Гистограмма относительных накопленных частот",
-					Values =  values
+					Values = values,
+					Title = "Гистограмма относительных накопленных частот"
 				}
 			};
-			LabelsRelativeCumulativeFrequency2 = labels;
+			relativeCumulativeFrequencySeriseChartAxisX2.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
+			relativeCumulativeFrequencySeriseChartAxisY2.LabelFormatter = values => values.ToString("F2", CultureInfo.InvariantCulture);
+			
 		}
 	}
 }
